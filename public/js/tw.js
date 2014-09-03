@@ -13,11 +13,18 @@ angular.module("tw", ["tw.socket"])
 		return {
 			restrict: "C",
 			transclude: true,
-			replace: false,
-			scope: true,
+			replace: true,
+			priority: 1,
+			scope: {
+			       "title": "@"
+			},
+			//scope: {
+			//	"title": "@"
+			//},
 			template: template,
-			link: function(scope, elm, attr){
-				scope.title = attr.title || "title";
+			link: function(scope, elm, attr, controllers, transclude){
+				transclude()
+
 			}
 		}
 	}])
