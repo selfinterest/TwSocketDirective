@@ -16,6 +16,9 @@ html(ng-app="SocketDirectiveDemo")
                             div.panel-body
                                 div.form-group
                                     textarea(rows="10", tw-socket="/models/ls", ng-model="results").form-control
+                                div.form-group
+                                    input(type="text", ng-model="directory").form-control
+                                    button(ng-click="submit()").btn.btn-primary Submit
                         div Results: {{results}}
         script(src="/socket.io/socket.io.js")
         script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.js")

@@ -32,7 +32,11 @@ angular.module("tw.socket", [])
 					element.val(scope.value);
 				};
 
-				twSocketService.io.emit(scope.channel, "/");
+				//twSocketService.io.emit(scope.channel, "/");
+
+				scope.$on("sendCommand", function(e, data){
+					twSocketService.io.emit(scope.channel, data.directory);
+				});
 
 			}
 		}

@@ -10,7 +10,7 @@ angular.module("SocketDirectiveDemo", ["tw"])
 		$scope.results = "Waiting for command...";
 		$scope.submit = function(){
 			console.log("Broadcasting");
-			$rootScope.$broadcast("sendCommand");
+			$rootScope.$broadcast("sendCommand", {directory: $scope.directory});
 		};
 
 
