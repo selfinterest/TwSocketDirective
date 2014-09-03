@@ -1,0 +1,25 @@
+doctype html
+html(ng-app="SocketDirectiveDemo")
+    head
+    title Socket Directive Demo
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+
+    body
+        div.container
+            div.row
+                div.col-lg-12
+                    h1 Socket Directive Demo
+                    div(title="Channel: /models/ls", ng-controller="LsController").tw-panel
+                        div.form-group
+                            textarea(rows="10", tw-socket="/models/ls", ng-model="results", tw-socket-options='{"mode": "receiveOnly"}').form-control
+                        div.row
+                            div.col-lg-10
+                                form(role="form").form-inline
+                                    div.form-group
+                                        input(type="text", ng-model="directory", tw-socket="/models/ls", tw-socket-options='{"sendOn": "sendCommand"}').input-lg
+                                        button(ng-click="submit()").btn.btn-primary Submit
+        script(src="/socket.io/socket.io.js")
+        script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.js")
+        script(src="/js/tw-socket.js")
+        script(src="/js/tw.js")
+        script(src="/js/main.js")
