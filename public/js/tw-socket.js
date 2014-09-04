@@ -10,7 +10,9 @@ angular.module("tw.socket", [])
 		return {
 			restrict: "A",
 			require: "ngModel",
-			scope: false,
+			scope: {
+				ngModel: '='
+			},
 			priority: 5,
 			link: function(scope, element, attr, ngModel) {
 
